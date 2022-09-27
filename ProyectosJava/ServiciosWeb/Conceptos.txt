@@ -1,0 +1,17 @@
+SERVICIO WEB:
+Exponen la información para poder ser obtenida.
+Es el cual sera utilizado para ser consumido por alguna tecnologia, PHP, JAVA, C, .NET
+
+Protocolos:
+	HTTP, XML, SOAP, JSON, REST
+
+SOAP:
+	Permite intercambia de informacion utilizando lenguaje XML para la comunicacion
+	Documento WSDL donde se expone todas las operaciones que tiene.
+	WSDL: Que operaciones estan disponibles y definiciones de los tipos de datos para las entradas de las operaciones y el 	retorno.
+
+RESTFUL:
+	Expone a traves de metodos POST, GET.
+
+
+

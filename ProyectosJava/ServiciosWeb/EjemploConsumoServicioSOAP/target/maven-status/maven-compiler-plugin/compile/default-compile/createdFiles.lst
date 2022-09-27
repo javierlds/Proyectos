@@ -1,0 +1,3 @@
+org\japaez\webapp\jaxws\services\SerivicioWS.class
+org\japaez\webapp\jaxws\services\ServicioWSImpl.class
+org\japaez\webapp\jaxws\models\Curso.class
