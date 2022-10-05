@@ -1,4 +1,4 @@
-package com.zenu;
+package com.zenu.conection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,9 +13,6 @@ public class Conexion {
         String pasw = "javier";
         try{
             conection = DriverManager.getConnection(host,user,pasw);
-            if(conection != null){
-                System.out.println("Conexion exitosa.");
-            }
 
         }catch(SQLException e){
             System.out.println(e);
