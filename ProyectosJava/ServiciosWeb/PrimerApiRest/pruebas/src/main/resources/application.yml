@@ -1,0 +1,16 @@
+server:
+  port: 8080 #define el numero de puerto a trabajar 
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/zenu
+    username: root
+    password: javier
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: update #las tablas se crean de forma automatica a partir de las ENTIDADES
+    properties:
+      dialect: org.hibernate.dialect.MySQL5Dialect # convertir los objetos en instrucciones sql o vicebersa
+    show-sql: true
