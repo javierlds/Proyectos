@@ -1,0 +1,80 @@
+***************** INYECCION DE DEPENCIAS ************
+
+Que es dependencia:
+	Modularizacion => Programa debe seguir estructura(compuesto por diferentes clases independientes que funcionen como una unidad eje CPU)
+					  cada objeto se comunica entre ellos para funcionar bien. Por ejemplo el procesador no funciona sin su disipador
+					  cada objeto necesita de otro para funcionar bien
+					  la placa base depende de muchos objetos para poder funcionar
+					  el procesador tiene una DEPENDENCIA del disipador
+					  
+Inyeccion de dependencia-Definicion :
+					Spring es quien proporciona esa DEPENDENCIA para que la clase funcione
+					Spring el que INYECTE aquellos objetos(dependencia) para que funcione correctamente en vez de crear los objetos en la clase con operador NEW
+					Ventajas:
+						Otras clases necesitan las DEPENDENCIAS, ejemplo , es como si el disipador ademas de ponerselo al procesador, se pone a la tarjeta grafica
+
+.build
+
+***************** ANOTACIONES *******************
+
+
+*************************************************
+
+FRONT => Model
+
+BACKEND =>
+	
+	**** ENTITY => Tiene la estructura de la tabla
+	**** DTO =>  
+			*** Objetos que se manejan para diferentes acciones pero que se pueda manipular, ejemplo USUARIO-> PROSPECTO
+				contener los campos de una u otra tabla.
+			*** Colocar los datos que necesita
+			*** Unificacion de varias entidades, si necesito 2 campos de tabla A y 3 campos tabla B , es un objeto 
+				con informacion que necesito de acuerdo a la necesidad
+			*** algunas veces son iguales a los Entity
+		
+	**** ADAPTER => Permite convertir DTO a MODEL(ENTITY) o viceversa
+		    la transformacion se presenta porque:
+			DTO 		  -> se usan para servicios REST , para recibir o enviar datos.
+			ENTITY(MODEL) -> Toma el DTO y se transforma a ENTITY(MODEL)
+    **** REPOSITORY =>
+         Trabajo netamente los model	
+			
+	
+	------------- Manipulacion de objetos ----------------
+	
+	(paso1)		 (paso2)      (paso3)			(paso4)
+	ENTITY  ----> DTO ------> ADAPTER -------> REPOSITORY (Son los dao)
+	
+	client --> 
+	enums  -->
+	
+	
+	
+******************** PASO A PASO LECTURA APLICACION **************************
+		capa 1:
+			Debe llevar @RestController
+			1. Controler
+			2. algunos retornan ResponseEntity <GenericResponse
+		
+		capa 2:
+		    2. service(interfaz)(metodos que yo tenga, consultar, guardar) CRUD
+				2.1 interfaz declaro los metodos que envio y que devuelvo
+				2.2 se agrega al final de la interfaz el imp => implementacion
+			
+
+		capa 3:
+			2.3 SERVICE IMPLEMENTATION => en la implementacion esta el metodo, todos los procesos set get, consultas a la bd
+										deben llevar @Service
+										2.3.1 se colocan los logs
+										2.3.2 seteos 
+										2.3.3 Inyectar(crear un objeto de clases REPOSITORY y ADAPTER para manipularlos)
+											2.3.3.1 para inyectar @Autowired variable de tipo que requiero
+										2.3.4  Llamo los servicios WEB o llama las clases para llamado a los servicios
+										2.3.5 Aca utilizo ADAPTER - DTO - ENTITY
+										
+										Ejemplo:
+											consultar la informacion laboral
+											1. Creo variable de tipo Repository
+										
+			2.4 se generan respuesta correctas o incorrectas	
