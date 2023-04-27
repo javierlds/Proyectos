@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/app-01.js"></script>
+</head>
+<body>
+    <form>
+        <label for="jugador1">Jugador 1:</label>
+        <input type="text" id="jugador1"><br>
+        <label for="jugador2">Jugador 2:</label>
+        <input type="text" id="jugador2"><br><br>
+        <p>Selecciona quien juega!!</p>
+        <label for="rad1">Jugador 1</label>
+        <input type="radio" id="rad1" name="seljug" value="jugador1"><br>
+        <label for="rad2">Jugador 2</label>
+        <input type="radio" id="rad2" name="seljug" value="jugador2"><br><br>
+        <label for="seleccion">Selecciona una opcion!!!</label>
+        <select name = "seleccion">
+            <option value="piedra">piedra</option>
+            <option value="papel">papel</option>
+            <option value="tijera">tijera</option>
+        </select><br><br>
+        <button type="button" id="juega" onclick="validaJugadores()">jugar</button><br><br>
+        <label for="puntos"> puntos jugador 1</label>
+        <input type="number" id="puntos1"><br>
+        <label for="puntos"> puntos jugador 2</label>
+        <input type="number" id="puntos2">
+    </form>
+
+    
+</body>
+</html>
